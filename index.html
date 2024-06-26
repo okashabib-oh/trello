@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://trello.com/assets/d19b8361de56914042bd.svg" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -113,97 +114,67 @@
     </nav>
 
     <div class="cards-container overflow-x-auto flex space-x-4 p-4">
-        <div id="cards"
-            class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700">
-            <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
-                Todo
-            </h5>
-            <ul class="my-4 space-y-3">
-                <li>
-                    <span
-                        class="flex-1 whitespace-nowrap flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">MetaMask</span>
-                </li>
-                <li>
-                    <form>
-                        <div class="relative mb-6">
-                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                                <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                    viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="1.5" d="M5 12h14m-7 7V5" />
-                                </svg>
-
-                            </div>
-                            <input type="text" id="input-group-1"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Add new">
-                        </div>
-                    </form>
-                </li>
-            </ul>
+        <div class="column card w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+          <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">Todo</h5>
+          <ul class="todo-list my-4 space-y-3">
+            <li>
+              <span draggable="true" class="flex-1 whitespace-nowrap flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">MetaMask</span>
+            </li>
+            <li>
+              <form class="todo-form">
+                <div class="relative mb-6">
+                  <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                    <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14m-7 7V5"/>
+                    </svg>
+                  </div>
+                  <input type="text" class="input-group bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Add new">
+                </div>
+              </form>
+            </li>
+          </ul>
         </div>
-        <div id="cards"
-            class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700">
-            <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
-                In progress
-            </h5>
-            <ul class="my-4 space-y-3">
-                <li>
-                    <span
-                        class="flex-1 whitespace-nowrap flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">MetaMask</span>
-                </li>
-                <li>
-                    <form>
-                        <div class="relative mb-6">
-                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                                <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                    viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="1.5" d="M5 12h14m-7 7V5" />
-                                </svg>
-
-                            </div>
-                            <input type="text" id="input-group-1"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Add new">
-                        </div>
-                    </form>
-                </li>
-            </ul>
+        <div class="column card w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+          <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">In progress</h5>
+          <ul class="todo-list my-4 space-y-3">
+            <li>
+              <span class="flex-1 whitespace-nowrap flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">MetaMask</span>
+            </li>
+            <li>
+              <form class="todo-form">
+                <div class="relative mb-6">
+                  <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                    <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14m-7 7V5"/>
+                    </svg>
+                  </div>
+                  <input type="text" class="input-group bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Add new">
+                </div>
+              </form>
+            </li>
+          </ul>
         </div>
-        <div id="cards"
-            class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700">
-            <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
-                Done
-            </h5>
-            <ul class="my-4 space-y-3">
-                <li>
-                    <span
-                        class="flex-1 whitespace-nowrap flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">MetaMask</span>
-                </li>
-                <li>
-                    <form>
-                        <div class="relative mb-6">
-                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                                <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                    viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="1.5" d="M5 12h14m-7 7V5" />
-                                </svg>
-
-                            </div>
-                            <input type="text" id="input-group-1"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Add new">
-                        </div>
-                    </form>
-                </li>
-            </ul>
+        <div class="column card w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+          <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">Done</h5>
+          <ul class="todo-list my-4 space-y-3">
+            <li>
+              <span class="flex-1 whitespace-nowrap flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">MetaMask</span>
+            </li>
+            <li>
+              <form class="todo-form">
+                <div class="relative mb-6">
+                  <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                    <svg class="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14m-7 7V5"/>
+                    </svg>
+                  </div>
+                  <input type="text" class="input-group bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Add new">
+                </div>
+              </form>
+            </li>
+          </ul>
         </div>
-    </div>
+      </div>
 
     <script src="./app.js"></script>
 </body>
