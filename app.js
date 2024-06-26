@@ -1,16 +1,16 @@
-const columns = document.querySelectorAll('.column');
+const columns = document.querySelectorAll('.trello-cards');
 
 const addTask = (event) => {
     event.preventDefault();
 
-    const currentForm = event.target; // current form element
-    const value = currentForm.elements[0].value; // value written in form's input
-    const parent = currentForm.parentElement; // parent of form i.e. li
-    const task = createTask(value); // li to be added
+    const currentForm = event.target;
+    const value = currentForm.elements[0].value;
+    const parent = currentForm.parentElement;
+    const task = createTask(value);
 
-    parent.insertBefore(task, currentForm); // adding new task before the form
+    parent.insertBefore(task, currentForm);
 
-    currentForm.reset(); // clearing form
+    currentForm.reset();
 };
 
 const createTask = (value) => {
@@ -26,6 +26,6 @@ const createTask = (value) => {
 };
 
 columns.forEach(column => {
-    const form = column.querySelector('.todo-form');
+    const form = column.querySelector('.trello-form');
     form.addEventListener('submit', addTask);
 });
