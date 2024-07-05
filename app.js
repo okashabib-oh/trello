@@ -3,6 +3,7 @@ const cardsContainer = document.querySelector('.cards-container');
 const btn = document.getElementById('addNew');
 const btnDiv = document.getElementById('buttonDiv');
 const cardInput = document.getElementById('cardInput');
+let draggedElement = null
 
 const addTask = (event) => {
     event.preventDefault();
@@ -28,11 +29,16 @@ const createTask = (value) => {
     const task = document.createElement('li');
     task.className = "mb-3";
     const taskSpan = document.createElement('span');
-    taskSpan.className = "flex-1 whitespace-nowrap flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white";
+    taskSpan.className = "task flex-1 whitespace-nowrap flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white";
     taskSpan.setAttribute("draggable", "true");
     const text = document.createTextNode(value);
     taskSpan.appendChild(text);
     task.appendChild(taskSpan);
+
+    task.addEventListener('mousedown', (e) => {
+        draggedElement = e.target;
+    })
+
     return task;
 };
 
@@ -92,6 +98,25 @@ const createNewCard = (title) => {
     cardsContainer.insertBefore(cardDiv, btnDiv);
 
     cardForm.addEventListener('submit', addTask);
+
+    cardDiv.addEventListener('dragover', (e) => {
+        e.preventDefault();
+    })
+
+    cardDiv.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+    })
+
+    cardDiv.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const droppedElement = e.target;
+        if(droppedElement.className.includes('trello-cards')){
+            droppedElement.appendChild(draggedElement)
+        }
+        if(droppedElement.className.includes('task')){
+            droppedElement.parentElement.appendChild(draggedElement);
+        }
+    })
 }
 
 btn.addEventListener('click', () => {
